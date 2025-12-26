@@ -270,4 +270,15 @@
       transform: translateY(0);
     }
   }
+   @layer components {
+  /* pega especificamente esse “perfil de chip” */
+  button.select-none.rounded-full.text-sm.font-medium.px-3.py-1\.5 {
+    @apply chip-default;
+  }
+
+  button.select-none.rounded-full.text-sm.font-medium.px-3.py-1\.5[aria-pressed="true"] {
+    @apply chip-selected;
+  }
+}
+
 }
