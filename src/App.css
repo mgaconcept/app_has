@@ -1,112 +1,42 @@
-/* =============== */
-/* IDENTIDADE HAS  */
-/* =============== */
-
-:root {
-  /* Troque esses 3 e você “troca a marca” */
-  --brand-1: 201 100% 52%;  /* azul neon (ex) */
-  --brand-2: 290 95% 60%;   /* roxo neon (ex) */
-  --brand-3: 50 100% 55%;   /* amarelo destaque (ex) */
-
-  --bg: 240 10% 4%;
-  --card: 240 10% 7%;
-  --text: 0 0% 98%;
-  --muted: 240 5% 70%;
-  --border: 240 4% 18%;
-
-  --radius: 16px;
-  --shadow: 0 18px 45px rgba(0,0,0,.35);
-}
-
-/* Base */
-html, body { height: 100%; }
-body {
-  margin: 0;
-  color: hsl(var(--text));
-  background:
-    radial-gradient(900px 500px at 12% 10%, hsla(var(--brand-1), .18), transparent 60%),
-    radial-gradient(800px 450px at 85% 15%, hsla(var(--brand-2), .16), transparent 55%),
-    hsl(var(--bg));
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
 #root {
-  min-height: 100vh;
-  max-width: none;         /* mata o “container blog” */
-  margin: 0;
-  padding: 24px;
-  text-align: left;        /* mata o “demo centralizado” */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-/* Títulos */
-h1, h2, h3 {
-  margin: 0 0 10px 0;
-  letter-spacing: -0.02em;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-h1 {
-  font-size: 32px;
-  font-weight: 800;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-p { color: hsl(var(--muted)); }
-
-/* Cards / blocos */
-.section,
-.card,
-.panel {
-  border: 1px solid hsl(var(--border));
-  background: hsla(var(--card), .72);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 16px;
-  margin: 14px 0;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-/* Badges tipo "peso 5" (se você deixar visível) */
-.peso,
-.weight,
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid hsl(var(--border));
-  color: hsl(var(--muted));
-  background: rgba(0,0,0,.25);
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* Chips (botões das tags) */
-/* Se seus botões não têm classe, isso estiliza TODOS os botões.
-   Se preferir não afetar botões de login, use a versão com .chip lá embaixo. */
-button {
-  border: 1px solid hsl(var(--border));
-  background: rgba(255,255,255,.03);
-  color: hsl(var(--text));
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  line-height: 1;
-  cursor: pointer;
-  transition: transform .08s ease, border-color .2s ease, background .2s ease;
-}
-button:hover {
-  border-color: hsla(var(--brand-1), .75);
-  background: hsla(var(--brand-1), .10);
-}
-button:active { transform: scale(0.98); }
-
-/* Estado “selecionado” (você pode aplicar data-selected="true" nos botões) */
-button[data-selected="true"] {
-  border-color: hsla(var(--brand-1), 1);
-  background: hsla(var(--brand-1), .22);
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-/* Link / detalhes */
-a { color: hsl(var(--brand-1)); }
+.card {
+  padding: 2em;
+}
 
-/* Responsivo */
-@media (max-width: 640px) {
-  #root { padding: 14px; }
-  h1 { font-size: 26px; }
+.read-the-docs {
+  color: #888;
 }
