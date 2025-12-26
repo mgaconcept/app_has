@@ -4,122 +4,86 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================================================
-   HAS / MIND — Futuristic Neon Identity (refactor completo)
-   - tokens mais coerentes
-   - dark mode com “cara de produto”
-   - chips, cards, sombras, glow e fundo sutil
-   ========================================================= */
-
 @layer base {
   :root {
-    /* Light mode (opcional — mantém legível) */
-    --background: 210 25% 97%;
-    --foreground: 222 25% 12%;
+    /* Industrial/Auto theme - Light mode */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 25% 12%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 25% 12%;
+    --popover-foreground: 215 25% 15%;
 
-    /* Marca (light) */
-    --primary: 201 100% 45%;
+    --primary: 200 85% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 18% 92%;
-    --secondary-foreground: 222 25% 18%;
+    --secondary: 215 20% 92%;
+    --secondary-foreground: 215 25% 25%;
 
-    --muted: 220 16% 94%;
-    --muted-foreground: 220 10% 40%;
+    --muted: 215 15% 94%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 290 95% 55%;
+    --accent: 175 75% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 16% 86%;
-    --input: 220 16% 86%;
-    --ring: 201 100% 45%;
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 200 85% 40%;
 
-    --radius: 0.95rem;
+    --radius: 0.75rem;
 
     /* Custom tokens */
     --score-high: 145 70% 42%;
-    --score-medium: 45 92% 50%;
-    --score-low: 15 85% 55%;
-
-    --chip-selected: 201 100% 45%;
+    --score-medium: 45 90% 50%;
+    --score-low: 15 80% 55%;
+    --chip-selected: 200 85% 40%;
     --chip-selected-foreground: 0 0% 100%;
-
-    /* Gradientes / sombras */
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(201 100% 45%) 0%,
-      hsl(290 95% 55%) 55%,
-      hsl(50 100% 55%) 100%
-    );
-
-    --shadow-card: 0 8px 28px -10px hsl(222 25% 12% / 0.14);
-    --shadow-elevated: 0 18px 60px -20px hsl(222 25% 12% / 0.22);
-
-    --glow-primary: 0 0 26px hsl(201 100% 45% / 0.35);
-    --glow-accent: 0 0 26px hsl(290 95% 55% / 0.30);
+    --gradient-hero: linear-gradient(135deg, hsl(200 85% 40%) 0%, hsl(175 75% 40%) 100%);
+    --shadow-card: 0 4px 20px -4px hsl(215 25% 15% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(215 25% 15% / 0.15);
   }
 
-  /* Dark mode = identidade principal */
   .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 215 30% 10%;
+    --foreground: 210 20% 95%;
 
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 215 25% 14%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 215 25% 14%;
+    --popover-foreground: 210 20% 95%;
 
-    /* Marca (neon) */
-    --primary: 201 100% 55%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 200 85% 55%;
+    --primary-foreground: 215 30% 10%;
 
-    --secondary: 240 6% 14%;
-    --secondary-foreground: 0 0% 92%;
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 90%;
 
-    --muted: 240 6% 12%;
-    --muted-foreground: 240 6% 70%;
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 60%;
 
-    --accent: 290 95% 60%;
-    --accent-foreground: 240 10% 4%;
+    --accent: 175 75% 50%;
+    --accent-foreground: 215 30% 10%;
 
-    --destructive: 0 68% 52%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 18%;
-    --input: 240 6% 18%;
-    --ring: 201 100% 55%;
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 200 85% 55%;
 
-    --radius: 1.05rem;
-
-    --score-high: 145 70% 52%;
-    --score-medium: 45 92% 55%;
-    --score-low: 15 85% 55%;
-
-    --chip-selected: 201 100% 55%;
-    --chip-selected-foreground: 240 10% 4%;
-
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(201 100% 55%) 0%,
-      hsl(290 95% 60%) 55%,
-      hsl(50 100% 55%) 100%
-    );
-
-    --shadow-card: 0 12px 34px -16px hsl(0 0% 0% / 0.65);
-    --shadow-elevated: 0 22px 70px -28px hsl(0 0% 0% / 0.85);
-
-    --glow-primary: 0 0 28px hsl(201 100% 55% / 0.40);
-    --glow-accent: 0 0 28px hsl(290 95% 60% / 0.35);
+    --score-high: 145 70% 50%;
+    --score-medium: 45 90% 55%;
+    --score-low: 15 80% 50%;
+    --chip-selected: 200 85% 55%;
+    --chip-selected-foreground: 215 30% 10%;
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 12px 40px -8px hsl(0 0% 0% / 0.5);
   }
 }
 
@@ -128,50 +92,29 @@
     @apply border-border;
   }
 
-  html, body {
-    height: 100%;
-  }
-
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
-    /* Fundo “tech” sutil sem pesar */
-    background:
-      radial-gradient(900px 520px at 12% 10%, hsl(var(--primary) / 0.18), transparent 60%),
-      radial-gradient(820px 500px at 88% 16%, hsl(var(--accent) / 0.14), transparent 55%),
-      hsl(var(--background));
   }
 
-  /* Tipografia com cara de produto */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', system-ui, sans-serif;
-    letter-spacing: -0.02em;
-  }
-
-  /* UX: foco bonito e consistente */
-  :focus-visible {
-    outline: 2px solid hsl(var(--ring));
-    outline-offset: 2px;
-    border-radius: 10px;
   }
 }
 
 @layer components {
-  /* Chips / tags */
   .chip-base {
     @apply inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium rounded-full border transition-all duration-200 cursor-pointer select-none;
   }
 
   .chip-default {
-    @apply chip-base bg-secondary/60 text-secondary-foreground border-border/60 hover:bg-secondary/80 hover:border-border;
+    @apply chip-base bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/80;
   }
 
   .chip-selected {
-    @apply chip-base bg-primary text-primary-foreground border-transparent;
-    box-shadow: var(--glow-primary);
+    @apply chip-base bg-primary text-primary-foreground border-transparent shadow-md;
   }
 
-  /* Badge de score */
   .score-badge {
     @apply inline-flex items-center justify-center px-2.5 py-1 text-xs font-bold rounded-lg;
   }
@@ -179,50 +122,24 @@
   .score-high {
     @apply score-badge text-primary-foreground;
     background-color: hsl(var(--score-high));
-    box-shadow: 0 0 18px hsl(var(--score-high) / 0.25);
   }
 
   .score-medium {
     @apply score-badge text-primary-foreground;
     background-color: hsl(var(--score-medium));
-    box-shadow: 0 0 18px hsl(var(--score-medium) / 0.20);
   }
 
   .score-low {
     @apply score-badge text-primary-foreground;
     background-color: hsl(var(--score-low));
-    box-shadow: 0 0 18px hsl(var(--score-low) / 0.22);
   }
 
-  /* Cards com estética “glass + neon” */
   .glass-card {
-    @apply bg-card/70 backdrop-blur-xl border border-border/60 rounded-2xl;
-    box-shadow: var(--shadow-card);
+    @apply bg-card/80 backdrop-blur-lg border border-border/50;
   }
 
-  .panel {
-    @apply rounded-2xl border border-border/60 bg-card/55 p-4;
-    box-shadow: var(--shadow-card);
-  }
-
-  /* Botão flutuante (mobile) */
   .floating-button {
     @apply fixed bottom-6 left-4 right-4 z-50;
-  }
-
-  /* Botão primário “marca” (pra usar quando quiser) */
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 font-semibold transition;
-    background: var(--gradient-hero);
-    color: hsl(var(--primary-foreground));
-    box-shadow: var(--shadow-elevated);
-  }
-  .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-elevated), var(--glow-accent);
-  }
-  .btn-primary:active {
-    transform: translateY(0px);
   }
 }
 
@@ -239,20 +156,12 @@
     box-shadow: var(--shadow-elevated);
   }
 
-  .glow-primary {
-    box-shadow: var(--glow-primary);
-  }
-
-  .glow-accent {
-    box-shadow: var(--glow-accent);
-  }
-
   .animate-fade-in {
     animation: fadeIn 0.3s ease-out;
   }
 
   .animate-slide-up {
-    animation: slideUp 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   @keyframes fadeIn {
@@ -261,24 +170,13 @@
   }
 
   @keyframes slideUp {
-    from {
+    from { 
       opacity: 0;
-      transform: translateY(18px);
+      transform: translateY(20px);
     }
-    to {
+    to { 
       opacity: 1;
       transform: translateY(0);
     }
   }
-   @layer components {
-  /* pega especificamente esse “perfil de chip” */
-  button.select-none.rounded-full.text-sm.font-medium.px-3.py-1\.5 {
-    @apply chip-default;
-  }
-
-  button.select-none.rounded-full.text-sm.font-medium.px-3.py-1\.5[aria-pressed="true"] {
-    @apply chip-selected;
-  }
-}
-
 }
