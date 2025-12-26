@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Print-like theme (ajustado para ficar próximo do print) */
+    /* Base dark neutro (não é “cor de marca”, é só base) */
     --background: 0 0% 7%;          /* #111 */
     --foreground: 0 0% 96%;         /* #f5 */
 
@@ -16,53 +16,63 @@
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 96%;
 
-    /* Primária: roxo/azul (botões/seleções) */
-    --primary: 250 70% 55%;
+    /* Marca 1: AZUL */
+    --primary: 210 85% 55%;         /* azul vivo */
     --primary-foreground: 0 0% 100%;
 
-    /* Secundária: grafite para chips / áreas neutras */
+    /* Neutros */
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 90%;
 
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 70%;
 
-    /* Accent: azul levemente mais claro para detalhes */
-    --accent: 220 70% 60%;
-    --accent-foreground: 0 0% 100%;
+    /* Marca 2: AMARELO NEON */
+    --accent: 59 95% 45%;           /* amarelo neon */
+    --accent-foreground: 0 0% 8%;   /* texto escuro em amarelo */
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;             /* #2a */
+    --border: 0 0% 16%;
     --input: 0 0% 16%;
-    --ring: 220 70% 60%;
+
+    /* Foco/anel: azul (e a gente usa amarelo no “selected glow”) */
+    --ring: 210 85% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens (ajustados para “neon” do print) */
-    --score-high: 78 38% 52%;       /* verde-lima ~ #a1b752 */
-    --score-medium: 59 90% 41%;     /* amarelo neon ~ #c5c20b */
-    --score-low: 12 80% 58%;        /* laranja/vermelho suave */
+    /* Badges (se quiser, ainda dentro do azul+amarelo) */
+    --score-high: 210 85% 55%;      /* azul */
+    --score-medium: 59 95% 45%;     /* amarelo neon */
+    --score-low: 12 80% 58%;        /* aviso (laranja/vermelho leve) */
 
-    --chip-selected: 250 70% 55%;
+    --chip-selected: 210 85% 55%;
     --chip-selected-foreground: 0 0% 100%;
 
-    /* Gradiente estilo print (roxo -> azul -> azul claro) */
+    /* Gradiente só com AZUL (sem roxo) */
     --gradient-hero: linear-gradient(
       135deg,
-      hsl(250 70% 55%) 0%,
-      hsl(225 60% 55%) 55%,
-      hsl(210 55% 62%) 100%
+      hsl(210 85% 55%) 0%,
+      hsl(205 80% 52%) 60%,
+      hsl(200 70% 58%) 100%
     );
 
-    /* Sombras mais “clean” no dark */
     --shadow-card: 0 6px 24px -10px hsl(0 0% 0% / 0.55);
     --shadow-elevated: 0 18px 55px -16px hsl(0 0% 0% / 0.70);
+
+    /* Extras só de cor (não muda layout/funcionalidade) */
+    --chip-selected-bg: linear-gradient(
+      90deg,
+      hsl(210 85% 55%) 0%,
+      hsl(205 80% 52%) 55%,
+      hsl(200 70% 58%) 100%
+    );
+    --neon: 59 95% 45%;
   }
 
   .dark {
-    /* Mantém coerência: dark = igual ao tema do print */
+    /* Igual ao :root pra garantir consistência */
     --background: 0 0% 7%;
     --foreground: 0 0% 96%;
 
@@ -72,7 +82,7 @@
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 96%;
 
-    --primary: 250 70% 55%;
+    --primary: 210 85% 55%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 12%;
@@ -81,24 +91,39 @@
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 220 70% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 59 95% 45%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 16%;
     --input: 0 0% 16%;
-    --ring: 220 70% 60%;
+    --ring: 210 85% 55%;
 
-    --score-high: 78 38% 52%;
-    --score-medium: 59 90% 41%;
+    --score-high: 210 85% 55%;
+    --score-medium: 59 95% 45%;
     --score-low: 12 80% 58%;
 
-    --chip-selected: 250 70% 55%;
+    --chip-selected: 210 85% 55%;
     --chip-selected-foreground: 0 0% 100%;
+
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(210 85% 55%) 0%,
+      hsl(205 80% 52%) 60%,
+      hsl(200 70% 58%) 100%
+    );
 
     --shadow-card: 0 6px 24px -10px hsl(0 0% 0% / 0.55);
     --shadow-elevated: 0 18px 55px -16px hsl(0 0% 0% / 0.70);
+
+    --chip-selected-bg: linear-gradient(
+      90deg,
+      hsl(210 85% 55%) 0%,
+      hsl(205 80% 52%) 55%,
+      hsl(200 70% 58%) 100%
+    );
+    --neon: 59 95% 45%;
   }
 }
