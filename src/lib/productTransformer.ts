@@ -8,22 +8,27 @@ function parseMultiValue(value: string | undefined): string[] {
     .filter(v => v.length > 0);
 }
 
-function extractMarca(descricao: string): string {
-  const marcaMatch = descricao.match(/\s-\s([A-Z]+)$/);
-  return marcaMatch ? marcaMatch[1] : 'Genérico';
+function splitDescricao(descricao?: string | null) {
+  const d = (typeof descricao === "string" ? descricao : "").trim();
+  if (!d) return { nome: "", marca: "Genérico" };
+
+  const sep = " - ";
+  const idx = d.lastIndexOf(sep);
+
+  // se não tiver " - " no fim, não dá pra inferir marca com segurança
+  if (idx === -1) return { nome: d, marca: "Genérico" };
+
+  const nome = d.slice(0, idx).trim();
+  const marca = d.slice(idx + sep.length).trim() || "Genérico";
+  return { nome, marca };
 }
 
-function formatNome(descricao: string): string {
-  // Remove a marca do final e formata o nome
-  const semMarca = descricao.replace(/\s-\s[A-Z]+$/, '');
-  // Capitaliza primeira letra de cada palavra importante
-  return semMarca
-    .split(' ')
-    .map(word => {
-      if (word.length <= 2) return word.toLowerCase();
-      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    })
-    .join(' ');
+export function extractMarca(descricao?: string | null): string {
+  return splitDescricao(descricao).marca;
+}
+
+export function formatNome(descricao?: string | null): string {
+  return splitDescricao(descricao).nome;
 }
 
 function createShortDescription(product: RawProduct): string {
@@ -43,8 +48,8 @@ export function transformProduct(raw: RawProduct): Product {
 
   return {
     id: String(raw.codigo),
-    nome: formatNome(raw.descricao),
-    marca: extractMarca(raw.descricao),
+    nome: formatNome(raw.descricao ?? ''),
+    marca: extractMarca(raw.descricao ?? ''),
     descricaoCurta: createShortDescription(raw),
     tags: [...new Set(allTags)],
     categoriaTags: {
