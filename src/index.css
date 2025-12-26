@@ -6,124 +6,177 @@
 
 @layer base {
   :root {
-    /* Base dark neutro (não é “cor de marca”, é só base) */
-    --background: 0 0% 7%;          /* #111 */
-    --foreground: 0 0% 96%;         /* #f5 */
+    /* Industrial/Auto theme - Light mode */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
-    --card: 0 0% 10%;               /* #1a */
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
 
-    /* Marca 1: AZUL */
-    --primary: 210 85% 55%;         /* azul vivo */
+    --primary: 200 85% 40%;
     --primary-foreground: 0 0% 100%;
 
-    /* Neutros */
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 215 20% 92%;
+    --secondary-foreground: 215 25% 25%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 215 15% 94%;
+    --muted-foreground: 215 15% 45%;
 
-    /* Marca 2: AMARELO NEON */
-    --accent: 59 95% 45%;           /* amarelo neon */
-    --accent-foreground: 0 0% 8%;   /* texto escuro em amarelo */
+    --accent: 175 75% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-
-    /* Foco/anel: azul (e a gente usa amarelo no “selected glow”) */
-    --ring: 210 85% 55%;
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 200 85% 40%;
 
     --radius: 0.75rem;
 
-    /* Badges (se quiser, ainda dentro do azul+amarelo) */
-    --score-high: 210 85% 55%;      /* azul */
-    --score-medium: 59 95% 45%;     /* amarelo neon */
-    --score-low: 12 80% 58%;        /* aviso (laranja/vermelho leve) */
-
-    --chip-selected: 210 85% 55%;
+    /* Custom tokens */
+    --score-high: 145 70% 42%;
+    --score-medium: 45 90% 50%;
+    --score-low: 15 80% 55%;
+    --chip-selected: 200 85% 40%;
     --chip-selected-foreground: 0 0% 100%;
-
-    /* Gradiente só com AZUL (sem roxo) */
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(210 85% 55%) 0%,
-      hsl(205 80% 52%) 60%,
-      hsl(200 70% 58%) 100%
-    );
-
-    --shadow-card: 0 6px 24px -10px hsl(0 0% 0% / 0.55);
-    --shadow-elevated: 0 18px 55px -16px hsl(0 0% 0% / 0.70);
-
-    /* Extras só de cor (não muda layout/funcionalidade) */
-    --chip-selected-bg: linear-gradient(
-      90deg,
-      hsl(210 85% 55%) 0%,
-      hsl(205 80% 52%) 55%,
-      hsl(200 70% 58%) 100%
-    );
-    --neon: 59 95% 45%;
+    --gradient-hero: linear-gradient(135deg, hsl(200 85% 40%) 0%, hsl(175 75% 40%) 100%);
+    --shadow-card: 0 4px 20px -4px hsl(215 25% 15% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(215 25% 15% / 0.15);
   }
 
   .dark {
-    /* Igual ao :root pra garantir consistência */
-    --background: 0 0% 7%;
-    --foreground: 0 0% 96%;
+    --background: 215 30% 10%;
+    --foreground: 210 20% 95%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 96%;
+    --card: 215 25% 14%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 215 25% 14%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 210 85% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 200 85% 55%;
+    --primary-foreground: 215 30% 10%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 90%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 60%;
 
-    --accent: 59 95% 45%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 175 75% 50%;
+    --accent-foreground: 215 30% 10%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 210 85% 55%;
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 200 85% 55%;
 
-    --score-high: 210 85% 55%;
-    --score-medium: 59 95% 45%;
-    --score-low: 12 80% 58%;
+    --score-high: 145 70% 50%;
+    --score-medium: 45 90% 55%;
+    --score-low: 15 80% 50%;
+    --chip-selected: 200 85% 55%;
+    --chip-selected-foreground: 215 30% 10%;
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 12px 40px -8px hsl(0 0% 0% / 0.5);
+  }
+}
 
-    --chip-selected: 210 85% 55%;
-    --chip-selected-foreground: 0 0% 100%;
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(210 85% 55%) 0%,
-      hsl(205 80% 52%) 60%,
-      hsl(200 70% 58%) 100%
-    );
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
 
-    --shadow-card: 0 6px 24px -10px hsl(0 0% 0% / 0.55);
-    --shadow-elevated: 0 18px 55px -16px hsl(0 0% 0% / 0.70);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
 
-    --chip-selected-bg: linear-gradient(
-      90deg,
-      hsl(210 85% 55%) 0%,
-      hsl(205 80% 52%) 55%,
-      hsl(200 70% 58%) 100%
-    );
-    --neon: 59 95% 45%;
+@layer components {
+  .chip-base {
+    @apply inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium rounded-full border transition-all duration-200 cursor-pointer select-none;
+  }
+
+  .chip-default {
+    @apply chip-base bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/80;
+  }
+
+  .chip-selected {
+    @apply chip-base bg-primary text-primary-foreground border-transparent shadow-md;
+  }
+
+  .score-badge {
+    @apply inline-flex items-center justify-center px-2.5 py-1 text-xs font-bold rounded-lg;
+  }
+
+  .score-high {
+    @apply score-badge text-primary-foreground;
+    background-color: hsl(var(--score-high));
+  }
+
+  .score-medium {
+    @apply score-badge text-primary-foreground;
+    background-color: hsl(var(--score-medium));
+  }
+
+  .score-low {
+    @apply score-badge text-primary-foreground;
+    background-color: hsl(var(--score-low));
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-lg border border-border/50;
+  }
+
+  .floating-button {
+    @apply fixed bottom-6 left-4 right-4 z-50;
+  }
+}
+
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
